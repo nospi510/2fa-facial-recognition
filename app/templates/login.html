@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Connexion</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <label for="username">Nom d'utilisateur :</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <button type="submit">Se connecter</button>
+        </form>
+        <p>Pas de compte ? <a href="{{ url_for('main.register') }}">Inscrivez-vous</a></p>
+    </div>
+</body>
+</html>

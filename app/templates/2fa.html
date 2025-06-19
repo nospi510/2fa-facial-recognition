@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Authentification à Deux Facteurs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Authentification 2FA</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <video id="video" width="640" height="480" autoplay></video>
+        <canvas id="canvas" width="640" height="480" style="display:none"></canvas>
+        <form id="2fa-form" method="POST" enctype="multipart/form-data" onsubmit="return prepareImage()">
+            <input type="file" id="face_image" name="face_image" style="display:none" accept="image/*">
+            <button type="button" onclick="capture()">Capturer l’image</button>
+            <button type="submit">Vérifier</button>
+        </form>
+        <script src="{{ url_for('static', filename='js/camera.js') }}"></script>
+    </div>
+</body>
+</html>
