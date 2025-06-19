@@ -30,7 +30,7 @@ Homebrew (sur macOS) pour installer les dépendances de face_recognition (option
 Installation
 
 Cloner le dépôt :
-git clone https://github.com/votre-utilisateur/2fa-facial-recognition.git
+git clone https://github.com/nospi510/2fa-facial-recognition.git
 cd 2fa-facial-recognition
 
 
